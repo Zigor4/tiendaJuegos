@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Fragment - ZGameK</title>
+    <link rel="stylesheet" href="/css/admin-styles.css">
+</head>
+<body>
+    <div th:fragment="menu">
+        <h1 th:text="#{titulo.admin.inicio}"></h1>
+        
+        <nav>
+        </nav>
+        
+        <nav class="admin-menu">
+            <a href="juegos" th:text="#{menu.admin.gestionar_juegos}">Gestionar Juegos</a>
+            <a href="pedidos" th:text="#{menu.admin.gestionar_pedidos}">Gestionar Pedidos</a>
+            <a href="../logout-admin" th:text="#{menu.admin.cerrar_sesion}">Cerrar Sesión</a>
+        </nav>
+    </div>
+</body>
+</html>

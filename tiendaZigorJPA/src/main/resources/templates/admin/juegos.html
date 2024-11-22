@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestionar Juegos - ZGameK Admin</title>
+    <link rel="stylesheet" href="/css/admin-styles.css">
+</head>
+<body>
+    <div th:insert="fragments/general.html :: menu"></div>
+
+    <div class="admin-container">
+        <a href="juegos-nuevo" th:text="#{admin.juegos.registrar}" class="admin-button">Registrar un nuevo juego</a>
+
+        <h2 class="admin-title" th:text="#{admin.juegos.listado}"></h2>
+
+        <div class="game-search">
+            <form action="juegos">
+                <input type="text" name="titulo" th:value="${titulo}" placeholder="Buscar por título"/>
+                <input type="submit" value="BUSCAR" />
+            </form>
+        </div>
+
+        <div class="pagination">
+            <a th:if="${anterior>=0}" th:href="@{${'juegos?comienzo=' + anterior + '&titulo=' + titulo}}">Anterior</a>
+            <a th:if="${siguiente<total}" th:href="@{${'juegos?comienzo=' + siguiente + '&titulo=' + titulo}}">Siguiente</a>
+        </div>
+
+        <div>Total de resultados: <span th:text="${total}"></span></div>
+
+        <div class="game-list">
+            <div th:each="j : ${juegos}" class="game-item">
+                <h3 th:text="${j.titulo}"></h3>
+                <p th:text="${j.descripcion}"></p>
+                <p><strong th:text="#{admin.juegos.precio}"></strong> <span th:text="${j.precio}"></span></p>
+                <p><strong th:text="#{admin.juegos.n_jugadores}"></strong> <span th:text="${j.numMaxJugadores}"></span></p>
+                <p><strong th:text="#{admin.juegos.edad_minima}"></strong> <span th:text="${j.edadMinima}"></span></p>
+                <p><strong th:text="#{admin.juegos.categoria}"></strong> <span th:text="${j.categoria.nombre}"></span></p>
+                <img th:src="@{${'../mostrar-imagen?id=' + j.id}}" alt="${j.titulo}">
+                <a th:href="@{${'juegos-borrar?id=' + j.id}}" onclick="return confirm('¿Seguro?')" th:text="#{admin.juegos.borrar}" class="admin-button">Borrar</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

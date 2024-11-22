@@ -1,0 +1,105 @@
+<!-- Paso 3 del procedimiento de chekout/compra 
+
+<div>REALIZAR PEDIDO - PASO 4</div>
+<div>Resumen del pedido:</div>
+
+<div>
+Productos del pedido:
+	<div id="productos_pedido">
+		{{#juegos}}
+			<div style="margin: 10px;">
+				Título: {{titulo}} <br>
+				<img style="height:40px" src="mostrar-imagen?id={{id}}"/> <br>
+				Cantidad: {{cantidad}} <br>
+				Precio/unidad: {{precio}} €
+			Descripción: {{descripcion}}
+				Número máximo de jugadores: {{numMaxJugadores}}
+				Edad mínima: {{edadMinima}}
+			</div>
+		{{/juegos}}
+	</div>
+</div>
+<div>
+Datos del envío:
+</div>
+<div style="margin:10px">
+	Nombre completo: {{nombreCompleto}} <br>
+	Dirección: {{direccion}}
+	Provincia: {{provincia}}
+	Localidad: {{localidad}}
+	Codigo Postal: {{codigoPostal}}
+	Télefono: {{telefono}}
+</div>
+
+<div>
+Datos de pago:
+</div>
+<div style="margin: 10px">
+	Tipo tarjeta: {{tipoTarjeta}} <br>
+	Titular: {{titularTarjeta}} <br>
+	Numero tarjeta: {{numeroTarjeta}} <br>
+	Numero Seguridad Tarjeta: {{numeroSeguridadTarjeta}} <br>
+	Fecha Caducidad Tarjeta: {{fechaCaducidadTarjeta}} <br>
+</div><br/>
+
+<div>Detalles cliente:</div>
+<div>
+	¿Algún detalle que debamos conocer para la entrega del pedido?<br>
+	{{detallesEntrega}}<br>
+	
+	¿Cuál es tu valoración del proceso de compra en nuestra Web?<br>
+	{{valoracionWeb}}
+</div>
+
+<button style="padding: 10px" id="boton_confirmar_pedido">CONFIRMAR PEDIDO</button> -->
+
+<div class="checkout-container">
+  <div class="checkout-title">REALIZAR PEDIDO - PASO 4</div>
+  <div class="checkout-subtitle">Resumen del pedido:</div>
+
+  <div class="order-summary">
+    <div>Productos del pedido:</div>
+    <div id="productos_pedido" class="product-list">
+      {{#juegos}}
+        <div class="product-item">
+          <img class="product-image-checkout4" style="height:40px" src="mostrar-imagen?id={{id}}"/>
+          <div class="product-details">
+            <div class="product-title">Título: {{titulo}}</div>
+            <div>Cantidad: {{cantidad}}</div>
+            <div class="product-price">Precio/unidad: {{precio}} €</div>
+          </div>
+        </div>
+      {{/juegos}}
+    </div>
+  </div>
+
+ <div class="checkout-subtitle">Datos del envío:</div>
+  <div class="shipping-details">
+    Nombre completo: {{nombreCompleto}} <br>
+    Dirección: {{direccion}} <br>
+    Provincia: {{provincia}} <br>
+    Localidad: {{localidad}} <br>
+    Codigo Postal: {{codigoPostal}} <br>
+    Télefono: {{telefono}}
+  </div>
+
+  <div class="checkout-subtitle">Datos de pago:</div>
+  <div class="payment-details">
+    Tipo tarjeta: {{tipoTarjeta}} <br>
+    Titular: {{titularTarjeta}} <br>
+    Numero tarjeta: {{numeroTarjeta}} <br>
+    Numero Seguridad Tarjeta: {{numeroSeguridadTarjeta}} <br>
+    Fecha Caducidad Tarjeta: {{fechaCaducidadTarjeta}}
+  </div>
+
+  <div class="checkout-subtitle">Detalles cliente:</div>
+  <div class="customer-details">
+    <div>¿Algún detalle que debamos conocer para la entrega del pedido?</div>
+    <div>{{detallesEntrega}}</div>
+    
+    <div>¿Cuál es tu valoración del proceso de compra en nuestra Web?</div>
+    <div>{{valoracionWeb}}</div>
+  </div>
+
+  <button class="button-primary" id="boton_confirmar_pedido">CONFIRMAR PEDIDO</button>
+</div>

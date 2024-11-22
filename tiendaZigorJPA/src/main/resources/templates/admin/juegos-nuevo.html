@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir Nuevo Juego - ZGameK Admin</title>
+    <link rel="stylesheet" href="/css/admin-styles.css">
+</head>
+<body>
+    <div th:insert="fragments/general.html :: menu"></div>
+
+    <div class="admin-container">
+        <h2 class="admin-title">Introduce los datos del nuevo juego:</h2>
+        <form action="#" th:action="juegos-guardar-nuevo" th:object="${nuevoJuego}" method="post" enctype="multipart/form-data" class="game-form">
+            <div>
+                <label for="titulo">Título:</label>
+                <input type="text" th:field="*{titulo}"/>
+                <span style="color:red;" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></span>
+            </div>
+            
+            <div>
+                <label for="descripcion">Descripción:</label>
+                <textarea rows="3" th:field="*{descripcion}"></textarea>
+                <span style="color:red;" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></span>
+            </div>
+            
+            <div>
+                <label for="precio">Precio:</label>
+                <input type="number" step=".01" th:field="*{precio}"/>
+                <span style="color:red;" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></span>
+            </div>
+            
+            <div>
+                <label for="numMaxJugadores">Nº max de jugadores:</label>
+                <input type="number" th:field="*{numMaxJugadores}"/>
+                <span style="color:red;" th:if="${#fields.hasErrors('numMaxJugadores')}" th:errors="*{numMaxJugadores}"></span>
+            </div>
+            
+            <div>
+                <label for="edadMinima">Edad mínima:</label>
+                <input type="number" th:field="*{edadMinima}"/>
+                <span style="color:red;" th:if="${#fields.hasErrors('edadMinima')}" th:errors="*{edadMinima}"></span>
+            </div>
+            
+            <div>
+                <label for="idCategoria">Categoria:</label>
+                <select th:field="*{idCategoria}">
+                    <option th:each="c : ${categorias}" th:text="${c.nombre}" th:value="${c.id}" />
+                </select>
+            </div>
+            
+            <div>
+                <label for="archivoSubido">Imagen:</label>
+                <input type="file" th:field="*{archivoSubido}">
+            </div>
+            
+            <input type="submit" value="REGISTRAR NUEVO JUEGO" class="admin-button"/>
+        </form>
+    </div>
+</body>
+</html>

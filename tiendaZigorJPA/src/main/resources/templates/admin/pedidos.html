@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Pedidos - ZGameK Admin</title>
+    <link rel="stylesheet" href="/css/admin-styles.css">
+</head>
+<body>
+    <div th:insert="fragments/general.html :: menu"></div>
+
+    <div class="admin-container">
+        <h2 class="admin-title">Listado de pedidos de la tienda</h2>
+
+        <div class="order-list">
+            <div th:each="p : ${pedidos}" class="order-item">
+                <h3 th:text="${p.nombreCompleto}"></h3>
+                <p><strong>Dirección:</strong> <span th:text="${p.direccion}"></span></p>
+                <p><strong>Estado:</strong> <span th:text="${p.estado}"></span></p>
+                <a th:href="@{${'ver-detalles-pedido?id=' + p.id}}" class="admin-button">Ver detalles</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

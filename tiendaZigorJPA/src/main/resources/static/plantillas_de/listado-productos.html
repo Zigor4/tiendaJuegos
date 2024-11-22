@@ -1,0 +1,23 @@
+
+<div class="product-list-container">
+  <h2 class="product-list-title" th:text="#{admin.listado.juegos}"></h2>
+  
+  <div class="product-grid">
+    {{#.}}
+      <div class="product-card">
+        <div class="product-image-container">
+          <img src="mostrar-imagen?id={{id}}" alt="{{ titulo }}" class="product-image"/>
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">{{ titulo }}</h3>
+          <p class="product-price">{{ precio }} €</p>
+          <a href="#" class="enlace_ver_detalles_juego button-primary" id-producto="{{id}}">Details anzeigen</a>
+        </div>
+      </div>
+    {{/.}}
+  </div>
+  <div class="pagination-container">
+    <a id="enlace_anterior" href="#">Nächste</a>
+    <a id="enlace_siguiente" href="#">Vorherige</a>
+  </div>
+</div>

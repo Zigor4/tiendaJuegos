@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZGameK</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">ZGameK</a>
+            <nav class="client-menu">
+                <a href="/" id="menu-inicio" th:text="#{menu.cliente.inicio}">INICIO</a>
+                <a href="#" id="menu-identificarme" th:text="#{menu.cliente.identificarme}">IDENTIFICARME</a>
+                <a href="#" id="menu-registrarme" th:text="#{menu.cliente.registrarme}">REGISTRARME</a>
+                <a href="#" id="menu-cerrar-sesion" th:text="#{menu.cliente.cerrar_sesion}">CERRAR SESIÓN</a>
+            </nav>
+            <div class="search-cart">
+                <form class="search-form">
+                    <input type="text" id="titulo_buscador" placeholder="Wonach suchen wir?">
+                </form>
+                <a href="#" id="menu-carrito" class="cart-icon hidden">🛒</a>
+                <div style="margin-left: 25px; ">
+            	<a href="admin/">VERWALTUNG</a>
+        	</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="language-selector">
+        <a href="?idioma=es">ESPAÑOL</a>
+        <a href="?idioma=en">ENGLISH</a>
+        <a href="?idioma=de">DEUTCH</a>
+    </div>
+
+    <div class="free-shipping-banner" th:text="#{menu.cliente.frase.envio}">
+    </div>
+
+
+    <main class="main-content">
+        <div id="contenedor" class="product-list-container">
+            <!-- Products will be dynamically inserted here -->
+        </div>
+    </main>
+    <script src="librerias_js/jquery.js"></script>
+    <script src="librerias_js/mustache.js"></script>
+    <script src="librerias_js/js.cookie.min.js"></script>
+    <script src="javascript/globales.js"></script>  
+      
+    <script>
+		sufijo_idioma = "_de"
+	</script>
+
+
+    <script src="javascript/variables_plantillas.js"></script>
+    <script src="javascript/operaciones.js"></script>
+    <script src="javascript/operaciones_checkout.js"></script>
+    <script src="javascript/menu.js"></script>
+    <script src="javascript/validaciones.js"></script>
+    <script>
+        //Por defecto cuando se cargue la página listamos productos
+        obtenerProductos()
+    </script>
+</body>
+</html>

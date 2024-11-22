@@ -1,0 +1,71 @@
+<!-- Paso 2 del procedimiento de chekout/compra 
+
+<div>REALIZAR PEDIDO - PASO 2</div>
+<div>Introduce tus datos de pago:</div>
+<div>(NO INTRODUCIR DATOS REALES, APLICACION EN PRUEBAS)</div>
+
+<div>
+Tipo de tarjeta: <select id="tipo_tarjeta">
+				 	<option value="0">Elegir tipo</option>
+				 	<option value="visa">VISA</option>
+				 	<option value="master_card">MASTER CARD</option>
+				 </select>
+</div>
+
+<div>
+Número de la tarjeta: <input type="text" id ="numero_tarjeta"/>
+</div>
+
+<div>
+Titular de la tarjeta: <input type="text" id ="titular_tarjeta"/>
+</div>
+
+<div>
+Numero de Seguridad (CVV): <input type="text" id ="numero_seguridad_tarjeta"/>
+</div>
+
+<div>
+Fecha caducidad de la tarjeta: <input type="text" id ="fecha_caducidad_tarjeta"/>
+</div>
+
+<br/>
+
+<button style="padding: 10px" id="aceptar_paso_2">ACEPTAR</button> -->
+
+
+<div class="checkout-container">
+  <div class="checkout-title">BESTELLUNG AUFGEBEN - SCHRITT 2</div>
+  <div class="checkout-subtitle">Geben Sie Ihre Zahlungsdaten ein:</div>
+  <div class="checkout-subtitle">(GEBEN SIE KEINE ECHTEN DATEN EIN, DIE ANWENDUNG WIRD GETESTET)</div>
+
+  <div class="form-group">
+    <label class="form-label" for="tipo_tarjeta">Kartenart:</label>
+    <select id="tipo_tarjeta" class="form-select">
+      <option value="0">Wählen Sie den Typ</option>
+      <option value="visa">VISA</option>
+      <option value="master_card">MASTER CARD</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for="numero_tarjeta">Kartennummer:</label>
+    <input type="text" id="numero_tarjeta" class="form-input"/>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for="titular_tarjeta">Inhaber der Karte:</label>
+    <input type="text" id="titular_tarjeta" class="form-input"/>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for="numero_seguridad_tarjeta">Sicherheitsnummer (CVV):</label>
+    <input type="text" id="numero_seguridad_tarjeta" class="form-input"/>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for="fecha_caducidad_tarjeta">Gültigkeitsdatum der Karte:</label>
+    <input type="text" id="fecha_caducidad_tarjeta" class="form-input"/>
+  </div>
+
+  <button class="button-primary" id="aceptar_paso_2">AKZEPTIEREN</button>
+</div>

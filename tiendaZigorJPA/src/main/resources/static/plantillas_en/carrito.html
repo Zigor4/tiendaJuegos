@@ -1,0 +1,34 @@
+<div class="cart-container">
+  <h1 class="cart-title">Carrito</h1>
+
+  <table class="cart-table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#.}}
+      <tr>
+        <td><img src="mostrar-imagen?id={{id}}" class="cart-image" alt="{{titulo}}"/></td>
+        <td>{{id}}</td>
+        <td class="cart-product-title">{{titulo}}</td>
+        <td class="cart-product-price">{{precio}} €</td>
+        <td class="cart-quantity">{{cantidad}}</td>
+      </tr>
+      {{/.}}
+    </tbody>
+  </table>
+
+  <div class="cart-total">
+    Total products: <span id="total_productos"></span><br/>
+  </div>
+
+  <div>
+    <a href="#" id="realizar-pedido" class="cart-checkout-button">FINISH ORDER</a>
+  </div>
+</div>

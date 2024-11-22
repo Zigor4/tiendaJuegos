@@ -1,0 +1,53 @@
+<!-- <!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div th:fragment="menu_cliente" style="margin: 10px">
+	<div>
+		Idioma: <a href="?idioma=es">ESPAÑOL</a> <a href="?idioma=en">ENGLISH</a> <a href="?idioma=de">DEUTCH</a>
+	</div>
+	
+	
+	<div style="margin: 10px;">
+		<a href="#" id="menu-inicio" th:text="#{menu.cliente.inicio}"></a>
+		<a href="#" id="menu-identificarme" th:text="#{menu.cliente.identificarme}"></a>
+		<a href="#" id="menu-registrarme" th:text="#{menu.cliente.registrarme}"></a>
+		<a href="#" id="menu-carrito" th:text="#{menu.cliente.carrito}"></a>
+		<a href="#" id="menu-mis-pedidos" th:text="#{menu.cliente.mis_pedidos}"></a>
+		<a href="#" id="menu-mis-datos" th:text="#{menu.cliente.mis_datos}"></a>
+		<a href="#" id="menu-cerrar-sesion" style="visibility: hidden;" th:text="#{menu.cliente.cerrar_sesion}"></a>
+	</div>
+</div>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Navigation Menu</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div th:fragment="menu_cliente" class="menu-cliente">
+        <div class="language-selector">
+            <a href="?idioma=es">ESPAÑOL</a> <a href="?idioma=en">ENGLISH</a> <a href="?idioma=de">DEUTCH</a>
+        </div>
+        
+        <nav class="client-menu">
+            <a href="#" id="menu-inicio" th:text="#{menu.cliente.inicio}"></a>
+            <a href="#" id="menu-identificarme" th:text="#{menu.cliente.identificarme}"></a>
+            <a href="#" id="menu-registrarme" th:text="#{menu.cliente.registrarme}"></a>
+            <a href="#" id="menu-carrito" th:text="#{menu.cliente.carrito}"></a>
+            <a href="#" id="menu-mis-pedidos" th:text="#{menu.cliente.mis_pedidos}"></a>
+            <a href="#" id="menu-mis-datos" th:text="#{menu.cliente.mis_datos}"></a>
+            <a href="#" id="menu-cerrar-sesion" class="hidden" th:text="#{menu.cliente.cerrar_sesion}"></a>
+        </nav>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles del Pedido - ZGameK Admin</title>
+    <link rel="stylesheet" href="/css/admin-styles.css">
+</head>
+<body>
+    <div th:insert="fragments/general.html :: menu"></div>
+
+    <div class="admin-container">
+        <h2 class="admin-title">Detalles del pedido:</h2>
+
+        <div class="order-details">
+            <div class="order-section">
+                <h3 class="order-section-title">Datos de envío:</h3>
+                <p><strong>Nombre completo:</strong> <span th:text="${pedido.nombreCompleto}"></span></p>
+                <p><strong>Dirección:</strong> <span th:text="${pedido.direccion}"></span></p>
+                <p><strong>Provincia:</strong> <span th:text="${pedido.provincia}"></span></p>
+                <p><strong>Localidad:</strong> <span th:text="${pedido.localidad}"></span></p>
+                <p><strong>Codigo Postal:</strong> <span th:text="${pedido.codigoPostal}"></span></p>
+                <p><strong>Teléfono:</strong> <span th:text="${pedido.telefono}"></span></p>
+            </div>
+
+            <div class="order-section">
+                <h3 class="order-section-title">Datos de pago:</h3>
+                <p><strong>Tipo de tarjeta:</strong> <span th:text="${pedido.tipoTarjeta}"></span></p>
+                <p><strong>Titular:</strong> <span th:text="${pedido.titularTarjeta}"></span></p>
+                <p><strong>Numero de tarjeta:</strong> <span th:text="${pedido.numeroTarjeta}"></span></p>
+                <p><strong>Numero seguridad de tarjeta:</strong> <span th:text="${pedido.numeroSeguridadTarjeta}"></span></p>
+                <p><strong>Fecha caducidad de tarjeta:</strong> <span th:text="${pedido.fechaCaducidadTarjeta}"></span></p>
+            </div>
+
+            <div class="order-section">
+                <h3 class="order-section-title">Productos del pedido:</h3>
+                <div th:each="productoPedido : ${pedido.productosPedido}" class="order-product">
+                    <p><strong>Título:</strong> <span th:text="${productoPedido.juego.titulo}"></span></p>
+                    <p><strong>Precio/unidad:</strong> <span th:text="${productoPedido.juego.precio}"></span></p>
+                    <p><strong>Cantidad:</strong> <span th:text="${productoPedido.cantidad}"></span></p>
+                </div>
+            </div>
+
+            <input type="hidden" id="id_pedido" th:field="${pedido.id}">
+
+            <div>
+                <label for="select_estado">Estado del pedido:</label>
+                <select id="select_estado" th:field="${pedido.estado}">
+                    <option th:each="estado: ${estados}" th:text="${estado}" th:value="${estado.key}">
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script src="../librerias_js/jquery.js"></script>
+    <script>
+    $("#select_estado").change(function(){
+        let estado = $("#select_estado").find(":selected").val()
+        let idPedido = $("#id_pedido").val()
+        alert("Estado: " + estado + " a la id de pedido: " + idPedido)
+        $.post("administracion-actualizar-estado-pedido", {
+            id: idPedido,
+            estado: estado
+        }).done(function(res){
+            alert(res)
+        })
+    })
+    </script>
+</body>
+</html>
